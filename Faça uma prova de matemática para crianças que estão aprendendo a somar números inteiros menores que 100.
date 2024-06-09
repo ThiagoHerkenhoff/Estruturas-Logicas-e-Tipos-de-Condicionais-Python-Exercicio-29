@@ -1,0 +1,32 @@
+# - 29 - Faça uma prova de matemática para crianças que estão aprendendo a somar números inteiros menores que 100.
+# Escolha números aleatórios entre 1 e 100, e mostre na tela: qual é a soma de a + b, onde a e b são núumeros aleatório.
+# Peça a resposta. Faça cinco perguntas ao aluno, e mostre parae ele as peruntas e respostas corretas, alèm de quantas
+# o aluno acertou.
+
+import random
+
+def gerar_pergunta():
+    a = random.randint(1, 100)
+    b = random.randint(1, 100)
+    soma = a + b
+    return a, b, soma
+
+def fazer_perguntas():
+    acertos = 0
+    for i in range(5):
+        a, b, soma = gerar_pergunta()
+        print(f"Pergunta {i + 1}: Qual é a soma de {a} + {b}?")
+        resposta = int(input("Resposta: "))
+        if resposta == soma:
+            acertos += 1
+            print("Resposta correta!\n")
+        else:
+            print(f"Resposta incorreta. A soma de {a} + {b} é {soma}.\n")
+    return acertos
+
+print("Bem-vindo à prova de soma de números inteiros menores que 100!")
+print("Responda às seguintes perguntas:\n")
+
+num_acertos = fazer_perguntas()
+
+print(f"Você acertou {num_acertos} perguntas de 5.")
